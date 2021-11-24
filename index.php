@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
-<head <?php language_attributes( ); ?>>
+<html <?php language_attributes(); ?>>
+<head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width">
-    <title>BLOG - MY PORTFOLIO</title>
+    
     <link href="<?php echo esc_url( get_stylesheet_uri(  )); ?>" rel="stylesheet"/>
     <?php wp_head(); ?>
 </head>
@@ -399,7 +399,7 @@
 <footer class="l-footer">
     <div class="l-container">
         <p class="c-footer-description"><?php bloginfo( 'description' ); ?></p>
-        <a class="c-logo is-white" href="../">
+        <a class="c-logo is-white" href="<?php echo esc_url( home_url( '/' ) ); ?>">
             <div class="c-logo__image">
                 <img src="<?php echo esc_url( get_theme_file_uri( 'images/logo.png') ); ?>" alt="<?php bloginfo( 'name' ); ?>">
             </div>
