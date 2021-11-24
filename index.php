@@ -42,6 +42,8 @@
                 <h1 class="archive-title">BLOG</h1>
                 <div class="c-post-archive">
                     <!-- ▼ 投稿 : 開始-->
+                    <?php if( have_posts(  ) ) : //もし投稿が一件以上あったら ?>
+                        <?php while( have_posts(  ) ) : //投稿の表示条件を満たす間はくり返す ?>
                     <article class="hentry">
                         <div class="hentry-thumbnail">
                             <a href="../blog/01/">
@@ -81,6 +83,7 @@
                         </div>
                     </article>
                     <!-- ▲ 投稿 : 終了-->
+                    <?php endwhile; //投稿ループ終了 ?>
                     <!-- ▼ 投稿 : 開始-->
                     <article class="hentry">
                         <div class="hentry-thumbnail">
