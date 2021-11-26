@@ -18,7 +18,11 @@
                     <article <?php post_class(); ?>>
                         <div class="hentry-thumbnail">
                             <a href="<?php the_permalink(); ?>">
-                                <img src="<?php echo esc_url(get_theme_file_uri('images/img-default.png')); ?>" alt="">
+                                <?php if( has_post_thumbnail() ); //もしアイキャッチ画像の設定があれば ?>
+                                    <?php the_post_thumbnail() ; ?>
+                                <?php else: //もしアイキャッチ画像の設定がなかったら ?>
+                                    <img src="<?php echo esc_url(get_theme_file_uri('images/img-default.png')); ?>" alt="">
+                                <?php endif; //条件分岐終了 ?>
                             </a>
                         </div>
                         <div class="hentry-content">
@@ -44,7 +48,7 @@
                                     <span class="cat-links">
                                         <?php the_category( '&nbsp;' ); ?>
                                     </span>
-                                    <?php the_tags( '<span class="tags-links">','&nbsp;', '</span>'); ?>
+                                        <?php the_tags( '<span class="tags-links">','&nbsp;', '</span>'); ?>
                                 </span>
                             </footer>
                         </div>
