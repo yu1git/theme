@@ -18,7 +18,7 @@
                     <article <?php post_class(); ?>>
                         <div class="hentry-thumbnail">
                             <a href="<?php the_permalink(); ?>">
-                                <?php if( has_post_thumbnail() ); //もしアイキャッチ画像の設定があれば ?>
+                                <?php if( has_post_thumbnail() ): //もしアイキャッチ画像の設定があれば ?>
                                     <?php the_post_thumbnail() ; ?>
                                 <?php else: //もしアイキャッチ画像の設定がなかったら ?>
                                     <img src="<?php echo esc_url(get_theme_file_uri('images/img-default.png')); ?>" alt="">
@@ -30,7 +30,7 @@
                                 <div class="entry-meta">
                                     <a href="<?php the_permalink(); ?>">
                                         <time class="entry-date published">
-                                            <?php the_time( 'Y年n月j日 '); ?>
+                                            <?php the_time( 'Y年n月j日' ); ?>
                                         </time>
                                     </a>
                                 </div>

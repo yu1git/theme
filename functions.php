@@ -19,10 +19,16 @@ function custom_theme_setup() {
 
     //アイキャッチ画像を有効化
     add_theme_support( 'post-thumbnails' );
-    set_post_thumbnail_size( 231, 177, false )
+    set_post_thumbnail_size( 231, 177, false );
 
+    //カスタムメニュー有効化、メニューの位置を設定
+    register_nav_menus( 
+        array(
+            'globalnav' => 'グローバルナビゲーション',
+        )
+    );
 }
-add_action( ' after_setup_theme ', ' custom_theme_setup ' );
+add_action( 'after_setup_theme', 'custom_theme_setup' );
 
 function myportfolio_scripts(){
     wp_enqueue_style( 
@@ -38,16 +44,17 @@ add_action( 'wp_enqueue_scripts', 'myportfolio_scripts' );
 // ウィジェットエリアの登録
 function custom_widget_register() {
     register_sidebar(array(
-        'name'          =>'サイバーウィジェットエリア',
-        'id'            =>'sidebar-widget',
-        'description'   =>'ブログページのサイドバーに表示されます',
-        'befor_widget'  =>'<div id="%1$s" class="c-widget %2$s">',
-        'after_widget'  =>'</div>',
-        'befor_title'   =>'<h2 class="c-widget__title">',
-        'after_title'   =>'</h2>',
+        'name'          => 'サイドバーウィジェットエリア',
+        'id'            => 'sidebar-widget',
+        'description'   => 'ブログページのサイドバーに表示されます。',
+        'before_widget' => '<div id="%1$s" class="c-widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="c-widget__title">',
+        'after_title'   => '</h2>',
     ));
 }
-add_action( 'widgets_init', 'custom_widget_register' )
+add_action( 'widgets_init', 'custom_widget_register' );
+
 
 
 ?>
